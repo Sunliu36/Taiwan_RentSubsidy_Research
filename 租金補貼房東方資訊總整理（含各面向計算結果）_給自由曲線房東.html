@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Serif TC','Georgia',serif;background:#faf8f4;color:#1a1a1a;font-size:18px;line-height:1.8}
+.page{max-width:720px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+.header{background:#1a3a2a;color:#fff;border-radius:12px;padding:1.75rem 2rem;margin-bottom:2rem}
+.header-tag{font-size:13px;letter-spacing:.1em;color:#a8c9b0;font-family:'Noto Sans TC','Arial',sans-serif;margin-bottom:.5rem}
+.header-title{font-size:23px;font-weight:700;line-height:1.5;margin-bottom:.75rem}
+.header-sub{font-size:14px;color:#c8dccb;font-family:'Noto Sans TC','Arial',sans-serif;line-height:1.6}
+
+.intro{background:#fff;border:1px solid #e0dcd4;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;font-family:'Noto Sans TC','Arial',sans-serif;font-size:15px;color:#333;line-height:1.8}
+
+.section{margin-bottom:1.75rem}
+.section-label{font-size:12px;letter-spacing:.12em;color:#2a6040;font-family:'Noto Sans TC','Arial',sans-serif;font-weight:700;text-transform:uppercase;margin-bottom:.6rem;border-left:3px solid #2a6040;padding-left:8px}
+.section-heading{font-size:21px;font-weight:700;margin-bottom:.75rem;color:#111}
+
+.desc{font-size:15px;color:#444;font-family:'Noto Sans TC','Arial',sans-serif;line-height:1.75;margin-bottom:1rem}
+
+.takeaway{background:#eef7f0;border:1px solid #c0e0cc;border-radius:12px;padding:1.25rem 1.4rem;margin-bottom:1.5rem;font-family:'Noto Sans TC','Arial',sans-serif;font-size:15px;color:#0d3a1e;line-height:1.75}
+.takeaway strong{color:#0a2e17}
+.takeaway .big{font-size:26px;font-weight:700;color:#2a6040;display:block;margin:8px 0 4px}
+
+.path-card{border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:.8rem;font-family:'Noto Sans TC','Arial',sans-serif}
+.path-amber{background:#fdf8ec;border:1px solid #e8d88a}
+.path-red{background:#fbf0ee;border:1px solid #e8b8b0}
+.path-green{background:#eef7f0;border:2px solid #2a6040}
+.path-head{font-size:15px;font-weight:700;margin-bottom:6px}
+.path-amber .path-head{color:#7a5010}
+.path-red .path-head{color:#8b2000}
+.path-green .path-head{color:#0a3d1a}
+.path-tax{font-size:13px;font-weight:700;margin-bottom:6px}
+.path-amber .path-tax{color:#7a5010}
+.path-red .path-tax{color:#8b2000}
+.path-green .path-tax{color:#0a3d1a}
+.path-body{font-size:14px;line-height:1.75}
+.path-amber .path-body{color:#5a3a00}
+.path-red .path-body{color:#6b1408}
+.path-green .path-body{color:#0d3a1e}
+.path-badge{display:inline-block;background:#2a6040;color:#fff;font-size:12px;padding:3px 10px;border-radius:6px;margin-bottom:8px}
+
+.bars{background:#fff;border:1px solid #e0dcd4;border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:1rem;font-family:'Noto Sans TC','Arial',sans-serif}
+.bar-row{margin-bottom:1rem}
+.bar-row:last-child{margin-bottom:0}
+.bar-label{font-size:13px;color:#444;margin-bottom:4px;display:flex;justify-content:space-between}
+.bar-label strong{font-weight:700}
+.bar-track{height:26px;background:#f0ede6;border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:12px;font-weight:700;color:#fff}
+
+.rec{background:#1a5c30;color:#fff;border-radius:10px;padding:1.1rem 1.3rem;margin:1rem 0;font-family:'Noto Sans TC','Arial',sans-serif}
+.rec-label{font-size:13px;color:#a8c9b0;margin-bottom:4px}
+.rec-num{font-size:24px;font-weight:700;line-height:1.3}
+.rec-sub{font-size:13px;color:#cfe5d4;margin-top:8px;line-height:1.7}
+
+.conclude{background:#eef7f0;border:1px solid #c0e0cc;border-radius:8px;padding:1rem 1.2rem;margin-top:1rem;font-size:14px;color:#0d3a1e;line-height:1.8;font-family:'Noto Sans TC','Arial',sans-serif}
+.conclude strong{color:#0a2e17}
+
+.hbox{background:#eef7f0;border-left:4px solid #2a6040;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:.75rem;font-family:'Noto Sans TC','Arial',sans-serif;font-size:15px;line-height:1.75;color:#0d3a1e}
+.hbox strong{font-size:16px;display:block;margin-bottom:4px;color:#0a2e17}
+.hbox-amber{background:#fdf8ec;border-left-color:#c09030;color:#3d2e00}
+.hbox-amber strong{color:#2a1e00}
+
+.capgains{background:#fff;border:1.5px solid #c0a060;border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1rem;font-family:'Noto Sans TC','Arial',sans-serif}
+.capgains-head{font-size:17px;font-weight:700;color:#6b4a10;margin-bottom:.8rem}
+.capgains p{font-size:14px;color:#3d2e00;line-height:1.8;margin-bottom:.8rem}
+.capgains strong{color:#6b4a10}
+.cg-key{background:#fdf8ec;border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:14px;color:#3d2e00;line-height:1.8;border-left:3px solid #c0a060}
+
+.info-block{background:#fff;border-radius:12px;border:1px solid #ddd;overflow:hidden;margin-bottom:.75rem}
+.info-q{background:#f0ede6;padding:.9rem 1.2rem;font-size:15px;color:#3a3a3a;font-family:'Noto Sans TC','Arial',sans-serif;font-weight:700;border-bottom:1px solid #e0dcd4}
+.info-a{padding:.9rem 1.2rem;font-size:15px;color:#1a1a1a;font-family:'Noto Sans TC','Arial',sans-serif;line-height:1.75}
+.info-a strong{color:#0a2e17}
+.info-link{font-size:12px;color:#2a6040;margin-top:6px;display:inline-block}
+
+.steps{counter-reset:step;list-style:none}
+.steps li{counter-increment:step;display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start;font-family:'Noto Sans TC','Arial',sans-serif;font-size:15px;line-height:1.75;color:#1a1a1a}
+.steps li::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#2a6040;color:#fff;font-weight:700;font-size:15px;flex-shrink:0;margin-top:2px}
+.steps li span{color:#1a1a1a}
+.steps li a{color:#2a6040}
+
+.append{background:#f7f5f0;border:1px solid #e0dcd4;border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:1rem;font-family:'Noto Sans TC','Arial',sans-serif}
+.append-title{font-size:14px;font-weight:700;color:#666;margin-bottom:.5rem}
+.append-body{font-size:13px;color:#555;line-height:1.75}
+.append-body strong{color:#444}
+.append-body a{color:#2a6040;text-decoration:none}
+
+.sources{background:#f0ede6;border-radius:12px;padding:1.2rem 1.5rem;margin-top:1.5rem}
+.sources-title{font-size:13px;letter-spacing:.08em;color:#555;font-family:'Noto Sans TC','Arial',sans-serif;font-weight:700;text-transform:uppercase;margin-bottom:.75rem}
+.sources a{display:block;font-size:13px;color:#2a6040;font-family:'Noto Sans TC','Arial',sans-serif;text-decoration:none;padding:5px 0;border-bottom:0.5px dashed #c8c4bc}
+.sources a:last-child{border-bottom:none}
+
+.footer-note{font-size:12px;color:#888;font-family:'Noto Sans TC','Arial',sans-serif;text-align:center;margin-top:1.5rem;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-tag">租屋補助與稅務資訊整理</div>
+    <div class="header-title">給房東的參考資料<br>關於「公益出租人」的稅務優惠</div>
+    <div class="header-sub">整理自：財政部、內政部、新竹市稅務局 2026年規定<br>房屋：自由曲線社區（東區埔頂三路），四房，約48坪</div>
+  </div>
+
+  <div class="intro">
+    您好，我整理了一份關於「公益出租人」的稅務資料給您參考。
+    我這邊有意願申請政府的租金補貼，而這項申請若辦理，您會自動取得「公益出租人」身分，
+    在房屋稅、地價稅與所得稅上都有實質的優惠。以下把數字和規定都列出來，方便您評估。
+  </div>
+
+  <div class="takeaway">
+    簡單說，同樣是出租這間四房，成為「公益出租人」後，光是稅金，
+    每年就能為您省下：
+    <span class="big">$75,920 / 年</span>
+    <span style="font-size:13px;color:#2a6040">（相較於一般出租，房屋稅、地價稅、所得稅三項合計省下的金額）</span>
+    <br><br>
+    這是因為公益出租人的三種稅率，都維持在跟自住一樣的水準。換算下來，
+    等於每個月幫您省下約 <strong>$6,300</strong>。
+  </div>
+
+  <div class="section">
+    <div class="section-label">三種做法的比較</div>
+    <div class="section-heading">出租這間房，稅務上有三條路</div>
+    <p class="desc" style="font-size:13px;color:#888;margin-bottom:1rem">以月租 $33,000、評定現值 $350萬、地價 $80萬估算，每年稅負約略如下。</p>
+
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-label"><span>做法一　私下分租</span><strong style="color:#7a5010">約 $36,600</strong></div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%;background:#d99a20">低｜有風險</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>做法二　一般出租</span><strong style="color:#8b2000">約 $144,144</strong></div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;background:#c0382f">最高</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>做法三　公益出租人</span><strong style="color:#0a3d1a">約 $68,224</strong></div>
+        <div class="bar-track"><div class="bar-fill" style="width:47%;background:#2a8050">合法又低</div></div>
+      </div>
+    </div>
+
+    <div class="path-card path-amber">
+      <div class="path-head">做法一：私下分租、未特別申報</div>
+      <div class="path-tax">年稅負約 $36,600（最低，但有查核風險）</div>
+      <div class="path-body">
+        這是部分房東過去的習慣做法，稅負最低——房屋稅 1%、地價稅 2‰，租金也不計入所得稅。
+        但在現行制度下風險已明顯升高：近年財政部建置「智能選案系統」，運用 AI 大數據比對
+        租金補貼、水電、金流、設籍等跨機關資料，找出有出租事實卻未申報的房東。
+        一旦被查到，會追補過去數年的租賃所得稅並加計罰鍰，房屋稅、地價稅也可能一併追補，
+        且每年都得擔著「會不會被查」的不確定。
+      </div>
+    </div>
+
+    <div class="path-card path-red">
+      <div class="path-head">做法二：一般出租、誠實申報</div>
+      <div class="path-tax">年稅負約 $144,144（最重）</div>
+      <div class="path-body">
+        完全合法，但也是三種裡稅負最重的——房屋稅跳到 2.6%、地價稅 10‰，
+        租金也要併入所得稅。
+      </div>
+    </div>
+
+    <div class="path-card path-green">
+      <span class="path-badge">最有利</span>
+      <div class="path-head">做法三：公益出租人（讓房客申請補助）</div>
+      <div class="path-tax">年稅負約 $68,224（合法，且幾乎與自住一樣低）</div>
+      <div class="path-body">
+        同樣完全合法，但稅負幾乎拉回自住水準：房屋稅 1.2%、地價稅 2‰、所得稅每月有 $15,000 免稅額。
+        等於「合法」與「低稅負」兼得。而且依住宅法規定，公益出租人的租賃資料不得作為查稅依據，
+        財政部也明確表示不會用來追溯查稅——這層保護，正好解決了做法一最讓人不安的地方。
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">那麼，租金需要調整嗎</div>
+    <div class="section-heading">建議方案</div>
+
+    <div class="rec">
+      <div class="rec-label">建議租金調整為</div>
+      <div class="rec-num">每月 $36,000（月加 $3,000）</div>
+      <div class="rec-sub">
+        若您原本以自住名義處理、希望維持同樣的實質收入，與公益出租人的稅負差距加上申報後多繳的所得稅，
+        缺口約在每月 $2,800 左右。調整為 $36,000 之後，不僅完全打平這個缺口，
+        <strong style="color:#fff">每月還能再多出約 $200 的淨收益</strong>，
+        對您來說是「補平之外、還略有盈餘」的安排。而對我而言，搭配政府的租金補貼，
+        這個金額也仍在可負擔範圍。對雙方都是合理的方案。
+      </div>
+    </div>
+
+    <div class="conclude">
+      <strong>而且別忘了：</strong>
+      做法一的「低稅負」其實是建立在被查核的風險之上，並不是一個能安穩守住的狀態。
+      一旦改用「合法出租」的角度來看，真正該比較的就是做法二和做法三——
+      而公益出租人比一般出租<strong>每年省下 $75,920</strong>。
+      也就是說，您調整為 $36,000 之後，不但租金收入增加，光稅金每年又省下七萬多，
+      兩邊加起來，實際入袋會比現在明顯更好。
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">優惠細項</div>
+    <div class="section-heading">公益出租人的四項優惠</div>
+    <div class="hbox">
+      <strong>① 所得稅：每月前 $15,000 免稅</strong>
+      超過部分扣除 43% 必要費用後才計稅。以月租計算，每年可少繳約 $20,520。
+    </div>
+    <div class="hbox">
+      <strong>② 房屋稅：維持 1.2% 自住稅率</strong>
+      一般出租為 2.6%（持有 1 戶）；公益出租維持 1.2%，以評定現值 $350萬計算，每年差約 $49,000。
+    </div>
+    <div class="hbox">
+      <strong>③ 地價稅：維持 2‰ 自住稅率</strong>
+      一般出租最低 10‰；公益出租維持 2‰，差距 5 倍。
+    </div>
+    <div class="hbox hbox-amber">
+      <strong>④ 不計入全國囤房戶數</strong>
+      2026年囤房稅2.0採全國歸戶，非自住房越多稅率越高。公益出租的房屋會從計算中排除，
+      若您名下有其他房屋，稅率也不會因為這間出租而被拉高。
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">關於房地合一稅</div>
+    <div class="section-heading">未來出售的考量（若六年內無賣房打算可略過）</div>
+    <div class="capgains">
+      <div class="capgains-head">這是「出租」本身的影響，與是否成為公益出租人無關</div>
+      <p>
+        依規定，房屋只要在出售前六年內有出租紀錄，賣房時就無法適用「自住免稅額 400 萬 + 超出部分 10% 優惠稅率」。
+        這一點，<strong>不論一般出租、還是公益出租人，條件完全相同</strong>——
+        當您決定把房子出租，這筆優惠就是無論如何都會失去的成本，不會因為選哪一種方式而有差別。
+      </p>
+      <div class="cg-key">
+        既然這部分兩種方式都一樣、省不掉，那麼真正值得在意的，
+        就是「在出租這件事上，要不要把每年的稅負壓到最低」——
+        而公益出租人，正是讓房屋稅、地價稅、所得稅全部維持自住稅率的選擇。
+      </div>
+      <p>
+        更重要的是，這項未來才會發生、而且只發生一次的優惠損失，
+        其實光靠成為公益出租人每年省下來的稅，就足以補回來。
+        房屋通常是長期持有的資產，多數人不會在短期內賣房；而且持有越久，房地合一稅本身的稅率就越低，
+        這項損失的影響也會被時間稀釋。
+      </p>
+      <div class="cg-key" style="border-left-color:#2a6040;background:#eef7f0;color:#0d3a1e">
+        因此，只要您打算長期持有出租，<strong style="color:#0a2e17">這項未來的損失，光靠每年省下的稅就能補平</strong>。
+        若您仍希望更早補回，就長期持有而言，每月小幅調整約 <strong style="color:#0a2e17">$1,000 至 $2,000</strong> 即已足夠，
+        負擔相當輕。
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">一點補充</div>
+    <div class="section-heading">您可能會想了解的事</div>
+    <div class="info-block">
+      <div class="info-q">成為公益出租人後，以前的稅務會不會受影響？</div>
+      <div class="info-a">
+        住宅法明文規定：公益出租人的租賃契約資料及租賃所得，
+        <strong>不得作為綜合所得稅、地價稅及房屋稅的查核依據</strong>。
+        財政部與內政部也有明確默契，公益出租人資料不會被拿來追溯查稅。
+        這項制度設計，就是為了讓房東能安心配合。
+        <br>
+        <a class="info-link" href="https://www.legis-pedia.com/article/housing-land-neighbors/1016">→ 法律百科：公益出租人稅賦優惠與查稅保護</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">配合方式</div>
+    <div class="section-heading">若您同意，只需要這幾步</div>
+    <ol class="steps">
+      <li><span>在租約中加入以下兩行文字：<br>
+        「<strong>一、出租人同意承租人申請政府租金補貼。</strong>」<br>
+        「<strong>二、出租人同意承租人將部分房間轉租予他人，轉租人數上限為 __ 人。</strong>」<br>
+        這兩條寫入合約後，您對轉租人數保有完整掌控。</span></li>
+      <li><span>補助由我自行向政府遞件申請，您不需參與。申請通過後，縣市政府會主動認定您為公益出租人，並通知國稅局套用所得稅與房屋稅優惠。</span></li>
+      <li><span>每年 <strong>3 月 22 日前</strong>，向新竹市稅務局申請地價稅自住優惠（這一項需主動申請才能享有）。<br>
+        <a href="https://www.hcct.gov.tw/ch/home.jsp?id=43&parentpath=0%2C5%2C41">→ 新竹市稅務局官網</a></span></li>
+      <li><span>每年報稅時選擇代號 <strong>「74G（公益出租人）」</strong>，系統會自動套用免稅優惠，不須另附文件。</span></li>
+    </ol>
+  </div>
+
+  <div class="append">
+    <div class="append-title">一個或許用得上的資訊：關於租賃所得申報</div>
+    <div class="append-body">
+      我理解，過去出租房屋若未特別申報租賃使用，是不少房東習慣的做法，這邊單純提供一個資訊給您參考。
+      近年財政部已建置「智能選案系統」，運用 AI 大數據，將租金補貼紀錄、水電用量、銀行金流、
+      房屋設籍等跨機關資料自動比對，協助查核未申報的租賃所得。系統上線後查核範圍逐年擴大，2026 年仍在持續強化。
+      而成為公益出租人，剛好能化解這層顧慮——依住宅法規定，<strong>公益出租人的租賃資料不得作為查稅依據</strong>，
+      財政部也明確表示不會用來追溯查稅。換句話說，與其往後每年都擔著「會不會被查」的心理負擔，
+      不如直接成為公益出租人，不僅有這層法律保護、能安心合法申報，同時還享有前面提到的三項稅務優惠，
+      每年實際入袋反而更多。一次處理，好處其實不少。
+      <br>
+      <a href="https://news.tvbs.com.tw/money/3211014">→ 相關報導（TVBS，2026/05）</a>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-title">資料來源</div>
+    <a href="https://pip.moi.gov.tw/Publicize/Info/B1020" target="_blank">① 內政部 300 億元中央擴大租金補貼專案（官方平台）</a>
+    <a href="https://www.hcct.gov.tw/userfiles/006/files/%E6%96%B0%E7%AB%B9%E5%B8%82%E7%A8%85%E5%8B%99%E5%B1%80%20%E6%88%BF%E5%B1%8B%E7%A8%85%E5%B7%AE%E5%88%A5%E7%A8%85%E7%8E%872_0%E5%95%8F%E8%88%87%E7%AD%94.pdf" target="_blank">② 新竹市稅務局 — 囤房稅2.0差別稅率問與答（PDF）</a>
+    <a href="https://www.legis-pedia.com/article/housing-land-neighbors/1016" target="_blank">③ 法律百科 — 公益出租人稅賦優惠（住宅法第15條）</a>
+    <a href="https://www.mof.gov.tw/house/multiplehtml/fb9a2a1b9efa426bb0cc7802e1a8da91" target="_blank">④ 財政部 — 囤房稅2.0改革重點說明</a>
+    <a href="https://www.mof.gov.tw/houseandland/multiplehtml/de144e74630c4ac59f2d84a068c889c9" target="_blank">⑤ 財政部 — 房地合一稅自住優惠說明</a>
+    <a href="https://futurecity.cw.com.tw/article/3998" target="_blank">⑥ 天下雜誌 — 出租對房地合一稅的影響說明</a>
+    <a href="https://twhome.net/%E6%96%B0%E7%AB%B9%E5%B8%82/%E6%9D%B1%E5%8D%80/%E8%87%AA%E7%94%B1%E6%9B%B2%E7%B7%9A" target="_blank">⑦ 台灣成家網 — 自由曲線實價登錄（近兩年均價 56萬/坪）</a>
+  </div>
+
+  <div class="footer-note">
+    試算基準：房屋評定現值 $350萬、地價 $80萬、月租 $33,000、所得稅 20% 稅率，房地合一稅以持有超過10年、獲利800萬估算（皆為估算值）。<br>
+    實際數字請向新竹市稅務局查詢（電話：03-5225161）。本文件僅供參考。
+  </div>
+
+</div>
+</body>
+</html>
